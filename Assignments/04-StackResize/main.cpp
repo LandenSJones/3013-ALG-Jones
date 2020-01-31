@@ -12,9 +12,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-
 using namespace std;
-
 /**
  * ArrayStack
  * 
@@ -28,6 +26,7 @@ using namespace std;
  *      - See main program
  *      
  */
+
 class ArrayStack{
 private:
   int *A;           // pointer to array of int's
@@ -103,6 +102,22 @@ public:
     return (top >= size-1);
   }
 
+  /**
+  * Public bool: Full
+  * 
+  * Description:
+  *      Stack Less than or equal to half?
+  * 
+  * Params:
+  *      NULL
+  * 
+  * Returns:
+  *      [bool] true = less than or equal to half
+  */
+  bool Half(){
+    return (top <= size/2);
+  } 
+  
  /**
   * Public int: Peek
   * 
@@ -140,10 +155,8 @@ public:
     if(!Empty()){
       return A[top--];
     }
-
-    return -99; // some sentinel value
-                // not a good solution
-  }
+    return -99; // some sentinel value 
+  }             // not a good solution
 
  /**
   * Public void: Print
@@ -202,8 +215,25 @@ public:
   * Returns:
   *      NULL
   */
-  void Resize(){
+  void ContainerGrow(){
     int newSize = size*2;       // double size of original
+    int *B = new int[newSize];  // allocate new memory
+
+    for(int i=0;i<size;i++){    // copy values to new array
+      B[i] = A[i];
+    }
+
+    delete [] A;                // delete old array
+
+    size = newSize;             // save new size
+
+    A = B;                      // reset array pointer
+
+  }
+
+};
+void ContainerShrink(){
+    int newSize = size/2;       // double size of original
     int *B = new int[newSize];  // allocate new memory
 
     for(int i=0;i<size;i++){    // copy values to new array
