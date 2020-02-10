@@ -90,7 +90,7 @@ private:
     int size; // current max stack size
     int top;  // top of stack
     int numResize; //used to keep track of how many times list is resized
-    int maxStackSize;
+    int maxStackSize; //used to keep track of the largest size 
 public:
     /**
     * ArrayStack
@@ -128,9 +128,9 @@ public:
     {
         size = s;           //inital size is passed by param
         A = new int[s];     //allocate space for array
-        top = -1;
-        numResize = 0;
-        maxStackSize = size;
+        top = -1;           //defualt is -1
+        numResize = 0;      //initally hasn't been resized
+        maxStackSize = size;//in case size never exceeds original size
     }
     /**
     * Public bool: Empty
@@ -223,7 +223,7 @@ public:
     {
         if (Empty())
         {
-            return -200; //sentinel value 
+            return -200; //sentinel value, don't really care about what is returned anyway
         }
         else
         {
@@ -355,10 +355,10 @@ int main()
 {
     ArrayStack stack;       //object initialization
     int r = 0;              //int used to hold the read integer
-    ifstream infile;
-    infile.open("nums_test.dat");
-    ofstream outfile;
-    outfile.open("output.dat");
+    ifstream infile;        //infile stream
+    infile.open("nums_test.dat");//hardcoded but can be removed if unknown before run
+    ofstream outfile;            //output file
+    outfile.open("output.dat");     //opening output file
     while (!infile.eof())
     {
         infile >> r;
@@ -369,10 +369,10 @@ int main()
     }
     //Desired output
     outfile << "######################################################################\n";
-    outfile << "Assignment 4 - Resizing the Stack\nCMPS 3013\nLanden Jones\n\n";
-    outfile << "Max Stack Size: " << stack.Max() << '\n';
-    outfile << "End Stack Size: " << stack.PrintSize() << '\n';
-    outfile << "Stack Resized: " << stack.NumResized() << "\n\n";
+    outfile << "\tAssignment 4 - Resizing the Stack\n\tCMPS 3013\n\tLanden Jones\n\n";
+    outfile << "\tMax Stack Size: " << stack.Max() << '\n';
+    outfile << "\tEnd Stack Size: " << stack.PrintSize() << '\n';
+    outfile << "\tStack Resized: " << stack.NumResized() << "\n\n";
     outfile << "######################################################################\n";
     return 0;
 }
