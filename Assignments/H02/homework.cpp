@@ -10,20 +10,19 @@ using namespace std;
  *          Heap        : default constructor
  *          Heap(int)   : overload constructor with heap size
  *      private:
- *          BubbleUp    : you comment this
- *          Left        : you comment this
- *          Right       : you comment this
- *          Parent      : you comment this
- *          OnHeap      : you comment this
- *          Swap        : you comment this
- *          /// Fix These:
+ *          BubbleUp    : This puts one value into its proper place in the heap
+ *          Left        : Calculates index of left child.
+ *          Right       : Calculates index of right child.
+ *          Parent      : Calculates parent of a given index.
+ *          OnHeap      : Checks if an index is on the array (past the end).
+ *          Swap        : Swaps to values in the heap
  *          SinkDown    : you comment this
- *          PickChild   : you comment this
+ *          PickChild   : If one child exists, return it. Otherwise, return the smaller of the two.
  *      public:
- *          Heapify     : you comment this
- *          Insert      : you comment this
- *          Print       : you comment this
- *          Remove      : you comment this
+ *          Heapify     : Takes an unsorted array and places it in min heap order
+ *          Insert      : Add a value to the heap.
+ *          Print       : For test our heap !!! Prints data
+ *          Remove      : Removes item from top of heap
  */
 class Heap {
 private:
@@ -125,6 +124,9 @@ private:
 
     /**
      *
+     * @description:
+     *      Takes an unsorted array and places it in min heap order
+     *
      * @param  {int*} A   :  array pointer with unsorted values to make into a heap
      * @param  {int} size :  size of new heap
      */
@@ -157,7 +159,7 @@ private:
     /**
      * PickChild
      * @description:
-     *      If one child exists, return it.
+     *      If one child exists, return it. 
      *      Otherwise, return the smaller of the two.
      *
      * @param  {int} index  : index of parent in the array
@@ -218,7 +220,11 @@ public:
     }
 
     /**
-     * For test our heap !!!
+    * Print
+     * @description:
+     *      For test our heap !!! Prints heap in nice format
+     *
+     *@return void
      */
     void Print() {
         for (int i = 1; i <= end - 1; i++) {
