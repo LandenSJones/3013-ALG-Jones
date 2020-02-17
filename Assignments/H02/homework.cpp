@@ -1,7 +1,24 @@
 #include <iostream>
 
 using namespace std;
-
+///////////////////////////////////////////////////////////////////////////////
+//
+// Author:           Landen Jones
+// Email:            LandenSJones@yahoo.com
+// Label:            H02
+// Title:            Homework 2 - Heap Debacle 
+// Course:           3013
+// Semester:         Spring 2020
+//
+// Description:
+//       This program shows the basic functions in a heap class.
+//
+// Usage:
+//       
+//
+// Files:            
+//                   homework.cpp    : driver program
+///////////////////////////////////////////////////////////////////////////////
 /**
  * Class Heap
  *
