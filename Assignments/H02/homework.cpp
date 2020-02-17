@@ -122,26 +122,7 @@ private:
     //Fix These Methods
     ////////////////////////////
 
-    /**
-     *
-     * @description:
-     *      Takes an unsorted array and places it in min heap order
-     *
-     * @param  {int*} A   :  array pointer with unsorted values to make into a heap
-     * @param  {int} size :  size of new heap
-     */
-    void Heapify(int *A, int size) {
-        //assume swapped for the first iteration
-        bool swapped = 1;
-        while (swapped == 1)
-        {
-            swapped = 0;
-            for (int i = 1; i < size / 2; i++)
-            {
-                SinkDown(i);
-            }
-        }
-    }
+
 
     /**
      * SinkDown
@@ -153,32 +134,28 @@ private:
      * @return              : void
      */
     void SinkDown(int index) {
-        PickChild(index);
+        int smallerChild = PickChild(index);
+        if (H[smallerChild] < H[index]){
+            swap(H[smallerChild], H[index]);
+        }
     }
 
     /**
      * PickChild
      * @description:
-     *      If one child exists, return it. 
+     *      If one child exists, return it.
      *      Otherwise, return the smaller of the two.
      *
      * @param  {int} index  : index of parent in the array
      * @return              : index to child
      */
     int PickChild(int index) {
-        if (end % 2 == 1) {
-            // no right child
-            return Left(index);
-        }
-        else {
-            // got two children
-            if (Right(index) < end) {
-                if (H[Right(index)] > H[Left(index)]) {
-                    return Left(index);
-                }
-                else {
-                    return Right(index);
-                }
+        if (Right(index) < end) {
+            if (H[Right(index)] > H[Left(index)]) {
+                return Left(index);
+            }
+            else {
+                return Right(index);
             }
         }
     }
@@ -203,6 +180,16 @@ public:
         H = new int[s];
         end = 1;
     }
+    /**
+    *
+    * @param  {int*} A   :  array pointer with unsorted values to make into a heap
+    * @param  {int} size :  size of new heap
+    */
+    void Heapify(int* A, int newSize) {
+        for (int i = 0; i < size; i++) {
+            Insert(A[i]);
+        }
+    }
 
     /**
    * Insert
@@ -220,11 +207,7 @@ public:
     }
 
     /**
-    * Print
-     * @description:
-     *      For test our heap !!! Prints heap in nice format
-     *
-     *@return void
+     * For test our heap !!!
      */
     void Print() {
         for (int i = 1; i <= end - 1; i++) {
@@ -252,17 +235,12 @@ public:
 };
 
 int main() {
-    Heap H;
-
-    H.Insert(17);
-    H.Insert(11);
-
-    for (int i = 2; i <= 10; i++) {
-        H.Insert(i);
+    const int SIZE = 20;
+    Heap H(SIZE);
+    int* A = new int[SIZE];
+    for (int i = 0; i < SIZE; i++){
+        A[i] = SIZE - i;
     }
-
+    H.Heapify(A, SIZE);
     H.Print();
-    cout << endl << H.Remove() << endl;
-    H.Print();
-    cout << endl << H.Remove() << endl;
 }
