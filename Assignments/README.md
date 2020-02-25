@@ -7,6 +7,6 @@
 |03-H01|<a href= "https://github.com/LandenSJones/3013-ALG-Jones/blob/master/Assignments/03-BannerPage/banner.txt"/>03-BannerPage|Banner|
 |04-P01|<a href="https://github.com/LandenSJones/3013-ALG-Jones/tree/master/Assignments/04-StackResize"/>04-StackResize|Resizing Stack|
 |05-P02|<a href= "https://github.com/LandenSJones/3013-ALG-Jones/tree/master/Assignments/P02"/>05-Processing in Linear Timer| |
-|06-P03|Pending| |
-|07-H02|<a href="https://github.com/LandenSJones/3013-ALG-Jones/blob/master/Assignments/H02/homework.cpp"/>07-Heapify_Debacle|Heapify Debacle|
+|06-P03|<a href= "https://github.com/LandenSJones/3013-ALG-Jones/tree/master/Assignments/P04"/>Pending| |
+|07-H02|<a href= "https://github.com/LandenSJones/3013-ALG-Jones/blob/master/Assignments/H02/homework.cpp"/>07-Heapify_Debacle|Heapify Debacle|
 |08-T01|Trees n Stuff||
