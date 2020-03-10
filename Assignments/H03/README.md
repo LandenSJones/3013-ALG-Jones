@@ -40,6 +40,7 @@ for (int j = 1 ; j < n ; j *= 2)
         {some_statement;} 
 ```
 O(nlog n)
+
 At most, how many comparisons are required to search a sorted vector of 1023 elements using the binary
 search algorithm?
 -10 Comparisons
